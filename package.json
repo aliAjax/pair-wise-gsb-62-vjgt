@@ -1,0 +1,36 @@
+{
+  "name": "pair-wise-gsb-62",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "nx serve tailings-monitor",
+    "build": "nx build tailings-monitor --skip-nx-cache",
+    "preview": "nx serve tailings-monitor --configuration=production"
+  },
+  "dependencies": {
+    "@angular/animations": "^19.2.0",
+    "@angular/cdk": "^19.2.0",
+    "@angular/common": "^19.2.0",
+    "@angular/compiler": "^19.2.0",
+    "@angular/core": "^19.2.0",
+    "@angular/forms": "^19.2.0",
+    "@angular/material": "^19.2.0",
+    "@angular/platform-browser": "^19.2.0",
+    "@angular/router": "^19.2.0",
+    "@ngrx/effects": "^19.1.0",
+    "@ngrx/store": "^19.1.0",
+    "@turf/turf": "^7.2.0",
+    "maplibre-gl": "^5.1.0",
+    "rxjs": "~7.8.1",
+    "tslib": "^2.8.1",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^19.2.0",
+    "@angular/cli": "^19.2.0",
+    "@angular/compiler-cli": "^19.2.0",
+    "@nx/angular": "^20.4.6",
+    "nx": "^20.4.6",
+    "typescript": "~5.7.2"
+  }
+}

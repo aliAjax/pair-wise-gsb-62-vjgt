@@ -1,0 +1,7 @@
+@import '@angular/material/prebuilt-themes/azure-blue.css';
+
+:root { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; color: #1b2929; background: #edf1f0; }
+* { box-sizing: border-box; }
+html, body { margin: 0; min-width: 1200px; height: 100%; background: #edf1f0; }
+body { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; }
+button, input, textarea { font: inherit; }

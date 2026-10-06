@@ -1,0 +1,193 @@
+(node:36560) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+❯ Building...
+(node:36560) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Building...
+[37mApplication bundle generation failed. [7.488 seconds][39m
+[37m[39m
+[1m[31m[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1m/Users/zhuanzmima0000/Desktop/Pair-wise/reposted-projects/pair-wise-gsb-62/apps/tailings-monitor/src/app/pages/dashboard-page.component.ts: Unexpected token, expected "{" (17:17)[39m[22m
+[1m[31m[39m[22m
+[1m[31m  15 |     abnormalCount = 0;[39m[22m
+[1m[31m  16 |     sumVersion = (sum, item) => sum + item.version;[39m[22m
+[1m[31m> 17 |     constructor(): void { this.points$.subscribe((points) => { this.abnormalCount = points.filter((point) => point.status !== '正常').length; }).unsubscribe(); }[39m[22m
+[1m[31m     |                  ^[39m[22m
+[1m[31m  18 | };[39m[22m
+[1m[31m  19 | DashboardPageComponent = __decorate([[39m[22m
+[1m[31m  20 |     Component({[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/tailings-monitor/src/app/app.routes.ts:3:30:[39m[22m
+[1m[31m[37m      3 │ ...: () => import([32m'./pages/dashboard-page.component'[37m).then(module =...[39m[22m
+[1m[31m        ╵                   [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  This error came from the "onLoad" callback registered here:[39m[22m
+[1m[31m[39m[22m
+[1m[31m    node_modules/@angular/build/src/tools/esbuild/angular/compiler-plugin.js:323:18:[39m[22m
+[1m[31m[37m      323 │             build.[32monLoad[37m({ filter: /\.[cm]?[jt]sx?$/ }, async (ar...[39m[22m
+[1m[31m          ╵                   [32m~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    at setup (/Users/zhuanzmima0000/Desktop/Pair-wise/reposted-projects/pair-wise-gsb-62/node_modules/@angular/build/src/tools/esbuild/angular/compiler-plugin.js:323:19)[39m[22m
+[1m[31m    at async handlePlugins (/Users/zhuanzmima0000/Desktop/Pair-wise/reposted-projects/pair-wise-gsb-62/node_modules/esbuild/lib/main.js:1466:20)[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8004: No pipe found with name 'number'.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/tailings-monitor/src/app/components/spatial-map.component.ts:11:77:[39m[22m
+[1m[31m[37m      11 │ ...与巡检路线</b><span>路�[32m��长�[37m�� {{ routeLength | number: ...[39m[22m
+[1m[31m         ╵                     [32m~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Bindings cannot contain assignments at column 37 in [{{ (anomalies$ | async)?.filter(item => item.status !== '已关闭').length }}] in [39m[22m[1m[31m/Users/zhuanzmima0000/Desktop/Pair-wise/reposted-projects/pair-wise-gsb-62/apps/tailings-monitor/src/app/pages/dashboard-page.component.ts@17:42[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/tailings-monitor/src/app/pages/dashboard-page.component.ts:18:42:[39m[22m
+[1m[31m[37m      18 │ ...常</span>[32m<strong>{{ (anomalies$ | async)?.filter(item => item.[37m...[39m[22m
+[1m[31m         ╵            [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Bindings cannot contain assignments at column 37 in [{{ (anomalies$ | async)?.filter(item => item.status !== '已关闭').length }}] in /Users/zhuanzmima0000/Desktop/Pair-wise/reposted-projects/pair-wise-gsb-62/apps/tailings-monitor/src/app/pages/dashboard-page.component.ts@17:42[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/tailings-monitor/src/app/pages/dashboard-page.component.ts:19:42:[39m[22m
+[1m[31m[37m      19 │ ...本</span>[32m<strong>{{ (dataset$ | async)?.thresholds?.reduce(sum[37m...[39m[22m
+[1m[31m         ╵            [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Bindings cannot contain assignments at column 37 in [{{ (anomalies$ | async)?.filter(item => item.status !== '已关闭').length }}] in /Users/zhuanzmima0000/Desktop/Pair-wise/reposted-projects/pair-wise-gsb-62/apps/tailings-monitor/src/app/pages/dashboard-page.component.ts@17:42[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/tailings-monitor/src/app/pages/dashboard-page.component.ts:21:33:[39m[22m
+[1m[31m[37m      21 │       <app-spatial-map [points]="[32m(points$ | async) ?? [][37m" />[39m[22m
+[1m[31m         ╵                                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Bindings cannot contain assignments at column 37 in [{{ (anomalies$ | async)?.filter(item => item.status !== '已关闭').length }}] in /Users/zhuanzmima0000/Desktop/Pair-wise/reposted-projects/pair-wise-gsb-62/apps/tai[39m[22m[1m[31mlings-monitor/src/app/pages/dashboard-page.component.ts@17:42[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/tailings-monitor/src/app/pages/dashboard-page.component.ts:24:39:[39m[22m
+[1m[31m[37m      24 │ ...ble mat-table [dataSource]="[32m(dataset$ | async)?.thresholds ?? [][37m">[39m[22m
+[1m[31m         ╵                                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Bindings cannot contain assignments at column 37 in [{{ (anomalies$ | async)?.filter(item => item.status !== '已关闭').length }}] in /Users/zhuanzmima0000/Desktop/Pair-wise/reposted-projects/pair-wise-gsb-62/apps/tailings-monitor/src/app/pages/dashboard-page.component.ts@17:42[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/tailings-monitor/src/app/pages/dashboard-page.component.ts:25:64:[39m[22m
+[1m[31m[37m      25 │ ...e"><th mat-header-cell [32m*matHeaderCellDef[37m>类型</th><td mat-cel...[39m[22m
+[1m[31m         ╵                           [32m~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Bindings cannot contain assignments at column 37 in [{{ (anomalies$ | async)?.filter(item => item.status !== '已关闭').length }}] in /Users/zhuanzmima0000/Desktop/Pair-wise/reposted-projects/pair-wise-gsb-62/apps/tailings-monitor/src/app/pages/dashboard-page.component.ts@17:42[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/tailings-monitor/src/app/pages/dashboard-page.component.ts:25:102:[39m[22m
+[1m[31m[37m      25 │ ...>类型</th><td mat-c[32mell *matCellDef="let [37mrow">{{ row.type }}</...[39m[22m
+[1m[31m         ╵                     [32m~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Bindings cannot contain assignments at column 37 in [{{ (anomalies$ | async)?.filter(item => item.status !== '已关闭').length }}] in /Users/zhuanzmima0000/Desktop/Pair-wise/reposted-projects/pair-wise-gsb-62/apps/tailings-monitor/src/app/pages/dashboard-page.component.ts@17:42[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    [39m[22m[1m[31mapps/tailings-monitor/src/app/pages/dashboard-page.component.ts:25:124:[39m[22m
+[1m[31m[37m      25 │ ... mat-cell *matCellDef="let r[32mow">{{ row.typ[37me }}</td></ng-container>[39m[22m
+[1m[31m         ╵                                [32m~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Bindings cannot contain assignments at column 37 in [{{ (anomalies$ | async)?.filter(item => item.status !== '已关闭').length }}] in /Users/zhuanzmima0000/Desktop/Pair-wise/reposted-projects/pair-wise-gsb-62/apps/tailings-monitor/src/app/pages/dashboard-page.component.ts@17:42[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/tailings-monitor/src/app/pages/dashboard-page.component.ts:26:67:[39m[22m
+[1m[31m[37m      26 │ ...g"><th mat-header-cell [32m*matHeaderCellDef[37m>预警</th><td mat-cel...[39m[22m
+[1m[31m         ╵                           [32m~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Bindings cannot contain assignments at column 37 in [{{ (anomalies$ | async)?.filter(item => item.status !== '已关闭').length }}] in /Users/zhuanzmima0000/Desktop/Pair-wise/reposted-projects/pair-wise-gsb-62/apps/tailings-monitor/src/app/pages/dashboard-page.component.ts@17:42[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/tailings-monitor/src/app/pages/dashboard-page.component.ts:26:105:[39m[22m
+[1m[31m[37m      26 │ ...>预警</th><td mat-c[32mell *matCellDef="let [37mrow">{{ row.warning }...[39m[22m
+[1m[31m         ╵                     [32m~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Bindings cannot contain assignments at column 37 in [{{ (anomalies$ | async)?.filter(item => item.status !== '已关闭').length }}] in /Users/zhuanzmima0000/Desktop/Pair-wise/reposted-projects/pair-wise-gsb-62/apps/tailings-monitor/src/app/pages/dashboard-page.component.ts@17:42[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/tailings-monitor/src/app/pages/dashboard-page.component.ts:26:127:[39m[22m
+[1m[31m[37m      26 │ ...atCellDef="let r[32mow">{{ row.warning [39m[22m[1m[31m}} {{ row.uni[37mt }}</td></ng-c...[39m[22m
+[1m[31m         ╵                    [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Bindings cannot contain assignments at column 37 in [{{ (anomalies$ | async)?.filter(item => item.status !== '已关闭').length }}] in /Users/zhuanzmima0000/Desktop/Pair-wise/reposted-projects/pair-wise-gsb-62/apps/tailings-monitor/src/app/pages/dashboard-page.component.ts@17:42[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/tailings-monitor/src/app/pages/dashboard-page.component.ts:27:65:[39m[22m
+[1m[31m[37m      27 │ ...m"><th mat-header-cell [32m*matHeaderCellDef[37m>报警</th><td mat-cel...[39m[22m
+[1m[31m         ╵                           [32m~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Bindings cannot contain assignments at column 37 in [{{ (anomalies$ | async)?.filter(item => item.status !== '已关闭').length }}] in /Users/zhuanzmima0000/Desktop/Pair-wise/reposted-projects/pair-wise-gsb-62/apps/tailings-monitor/src/app/pages/dashboard-page.component.ts@17:42[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/tailings-monitor/src/app/pages/dashboard-page.component.ts:27:103:[39m[22m
+[1m[31m[37m      27 │ ...>报警</th><td mat-c[32mell *matCellDef="let [37mrow">{{ row.alarm }} ...[39m[22m
+[1m[31m         ╵                     [32m~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Bindings cannot contain assignments at column 37 in [{{ (anomalies$ | async)?.filter(item => item.status !== '已关闭').length }}] in /Users/zhuanzmima0000/Desktop/Pair-wise/reposted-projects/pair-wise-gsb-62/apps/tailings-monitor/src/app/pages/dashboard-page.component.ts@17:42[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/tailings-monitor/src/app/pages/dashboard-page.component.ts:27:125:[39m[22m
+[1m[31m[37m      27 │ ...matCellDef="let r[32mow">{{ row.alarm }} {{ row.uni[37mt }}</td></ng-co...[39m[22m
+[1m[31m         ╵                     [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m✘ [41;31m[39m[22m[1m[31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Bindings cannot contain assignments at column 37 in [{{ (anomalies$ | async)?.filter(item => item.status !== '已关闭').length }}] in /Users/zhuanzmima0000/Desktop/Pair-wise/reposted-projects/pair-wise-gsb-62/apps/tailings-monitor/src/app/pages/dashboard-page.component.ts@17:42[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/tailings-monitor/src/app/pages/dashboard-page.component.ts:28:64:[39m[22m
+[1m[31m[37m      28 │ ...e"><th mat-header-cell [32m*matHeaderCellDef[37m>变化率</th><td mat-...[39m[22m
+[1m[31m         ╵                           [32m~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Bindings cannot contain assignments at column 37 in [{{ (anomalies$ | async)?.filter(item => item.status !== '已关闭').length }}] in /Users/zhuanzmima0000/Desktop/Pair-wise/reposted-projects/pair-wise-gsb-62/apps/tailings-monitor/src/app/pages/dashboard-page.component.ts@17:42[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/tailings-monitor/src/app/pages/dashboard-page.component.ts:28:103:[39m[22m
+[1m[31m[37m      28 │ ...变化率</th><td mat[32m-cell *matCellDef="le[37mt row">{{ row.changeR...[39m[22m
+[1m[31m         ╵                   [32m~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Bindings cannot contain assignments at column 37 in [{{ (anomalies$ | async)?.filter(item => item.status !== '已关闭').length }}] in /Users/zhuanzmima0000/Desktop/Pair-wise/reposted-projects/pair-wise-gsb-62/apps/tailings-monitor/src/app/pages/dashboard-page.component.ts@17:42[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/tailings-monitor/src/app/pages/dashboard-page.component.ts:28:125:[39m[22m
+[1m[31m[37m      28 │ ...atCellDef="let[32m row">{{ row.changeRate }} {{ row.u[37mnit }}</td></n...[39m[22m
+[1m[31m         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Bindings cannot contain assignments at column 37 in [{{ (anomalies$ | async)[39m[22m[1m[31m?.filter(item => item.status !== '已关闭').length }}] in /Users/zhuanzmima0000/Desktop/Pair-wise/reposted-projects/pair-wise-gsb-62/apps/tailings-monitor/src/app/pages/dashboard-page.component.ts@17:42[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/tailings-monitor/src/app/pages/dashboard-page.component.ts:29:67:[39m[22m
+[1m[31m[37m      29 │ ...n"><th mat-header-cell [32m*matHeaderCellDef[37m>版本</th><td mat-cel...[39m[22m
+[1m[31m         ╵                           [32m~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Bindings cannot contain assignments at column 37 in [{{ (anomalies$ | async)?.filter(item => item.status !== '已关闭').length }}] in /Users/zhuanzmima0000/Desktop/Pair-wise/reposted-projects/pair-wise-gsb-62/apps/tailings-monitor/src/app/pages/dashboard-page.component.ts@17:42[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/tailings-monitor/src/app/pages/dashboard-page.component.ts:29:105:[39m[22m
+[1m[31m[37m      29 │ ...>版本</th><td mat-c[32mell *matCellDef="let [37mrow">V{{ row.version ...[39m[22m
+[1m[31m         ╵                     [32m~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Bindings cannot contain assignments at column 37 in [{{ (anomalies$ | async)?.filter(item => item.status !== '已关闭').length }}] in /Users/zhuanzmima0000/Desktop/Pair-wise/reposted-projects/pair-wise-gsb-62/apps/tailings-monitor/src/app/pages/dashboard-page.component.ts@17:42[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/tailings-monitor/src/app/pages/dashboard-page.component.ts:29:127:[39m[22m
+[1m[31m[37m      29 │ ...-cell *matCellDef="let r[32mow">V{{ row.versio[37mn }}</td></ng-container>[39m[22m
+[1m[31m         ╵                            [32m~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Bindings cannot contain assignments at column 37 in [{{ (anomalies$ | async)?.filter(item => item.status !== '已关闭').length }}] in /Users/zhuanzmima0000/Desktop/Pair-wise/reposted-projects/pair-wise-gsb-62/ap[39m[22m[1m[31mps/tailings-monitor/src/app/pages/dashboard-page.component.ts@17:42[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/tailings-monitor/src/app/pages/dashboard-page.component.ts:30:29:[39m[22m
+[1m[31m[37m      30 │ ...at-header-row [32m*matHeaderRowDef="thresholdColumns"[37m></tr><tr mat-...[39m[22m
+[1m[31m         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Bindings cannot contain assignments at column 37 in [{{ (anomalies$ | async)?.filter(item => item.status !== '已关闭').length }}] in /Users/zhuanzmima0000/Desktop/Pair-wise/reposted-projects/pair-wise-gsb-62/apps/tailings-monitor/src/app/pages/dashboard-page.component.ts@17:42[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/tailings-monitor/src/app/pages/dashboard-page.component.ts:30:82:[39m[22m
+[1m[31m[37m      30 │ ...><tr mat-row [32m*matRowDef="let row; columns: thresholdColumns"[37m></tr>[39m[22m
+[1m[31m         ╵                 [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS1093: Type annotation cannot appear on a constructor declaration.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/tailings-monitor/src/app/pages/dashboard-page.component.ts:51:17:[39m[22m
+[1m[31m[37m      51 │   constructor(): [32mvoid[37m { this.points$.subscribe((points) => { this....[39m[22m
+[1m[31m         ╵                  [32m~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m

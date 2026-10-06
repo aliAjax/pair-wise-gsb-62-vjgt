@@ -1,0 +1,172 @@
+{
+  "apps/tailings-monitor": {
+    "root": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "prefix": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.outputs": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.defaultConfiguration": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.outputPath": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.browser": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.index": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.tsConfig": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.styles": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.assets": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production.budgets": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production.outputHashing": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development.optimization": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development.extractLicenses": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development.sourceMap": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.executor": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.defaultConfiguration": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.buildTarget": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.port": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.production": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.production.buildTarget": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.development": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.development.buildTarget": [
+      "apps/tailings-monitor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.dependsOn": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ]
+  }
+}
