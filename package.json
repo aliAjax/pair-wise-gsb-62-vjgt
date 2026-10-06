@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "nx serve tailings-monitor",
     "build": "nx build tailings-monitor --skip-nx-cache",
-    "preview": "nx serve tailings-monitor --configuration=production"
+    "preview": "nx serve tailings-monitor --configuration=production",
+    "test:offline": "bash tmp/run-tests.sh"
   },
   "dependencies": {
     "@angular/animations": "^19.2.0",

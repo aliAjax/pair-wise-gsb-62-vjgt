@@ -5,7 +5,7 @@ import { provideHttpClient } from '@angular/common/http'
 import { provideEffects } from '@ngrx/effects'
 import { provideStore } from '@ngrx/store'
 import { appRoutes } from './app.routes'
-import { tailingsReducer } from './store/tailings.reducer'
+import { persistenceMetaReducer, tailingsReducer } from './store/tailings.reducer'
 import { TailingsEffects } from './store/tailings.effects'
 
 export const appConfig: ApplicationConfig = {
@@ -14,7 +14,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(appRoutes),
     provideAnimationsAsync(),
     provideHttpClient(),
-    provideStore({ tailings: tailingsReducer }),
+    provideStore({ tailings: tailingsReducer }, { metaReducers: [persistenceMetaReducer] }),
     provideEffects(TailingsEffects)
   ]
 }

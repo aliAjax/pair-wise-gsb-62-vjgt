@@ -7,9 +7,9 @@ import { MatInputModule } from '@angular/material/input'
 import { MatSelectModule } from '@angular/material/select'
 import { MatTableModule } from '@angular/material/table'
 import { Store } from '@ngrx/store'
-import type { Anomaly, DispositionPlan, ExpertOpinion, FieldReview } from '../domain'
+import type { Anomaly, DispositionPlan, ExpertOpinion, FieldReview, OfflineBatch } from '../domain'
 import { TailingsActions } from '../store/tailings.actions'
-import { selectAnomalies, selectFilteredAnomalies, selectSelectedAnomaly, selectTailings } from '../store/tailings.selectors'
+import { selectAnomalies, selectFilteredAnomalies, selectOfflineBatches, selectSelectedAnomaly, selectTailings } from '../store/tailings.selectors'
 
 @Component({
   selector: 'app-anomaly-page',
@@ -20,7 +20,7 @@ import { selectAnomalies, selectFilteredAnomalies, selectSelectedAnomaly, select
       <div class="metrics">
         <article><span>待现场复核</span><strong>{{ count('待现场复核') }}</strong><small>不得直接关闭</small></article>
         <article><span>调查与审批</span><strong>{{ count('原因调查中') + count('待负责人审批') }}</strong><small>多专业意见并存</small></article>
-        <article><span>应急联动</span><strong>{{ count('应急联动') }}</strong><small>重大异常强制联动</small></article>
+        <article><span>阈值重算重开</span><strong>{{ count('重算重开') + count('应急联动') }}</strong><small>阈值版本变化后已关闭也重开</small></article>
         <article><span>已关闭</span><strong>{{ count('已关闭') }}</strong><small>具备复测与签批</small></article>
       </div>
       <div class="toolbar"><mat-form-field appearance="outline"><mat-label>搜索异常</mat-label><input matInput [(ngModel)]="localKeyword" (ngModelChange)="updateKeyword($event)" /></mat-form-field><mat-form-field appearance="outline"><mat-label>状态</mat-label><mat-select [(ngModel)]="localStatus" (ngModelChange)="updateStatus($event)"><mat-option value="全部">全部</mat-option><mat-option *ngFor="let item of statuses" [value]="item">{{ item }}</mat-option></mat-select></mat-form-field></div>
@@ -28,13 +28,19 @@ import { selectAnomalies, selectFilteredAnomalies, selectSelectedAnomaly, select
         <table mat-table [dataSource]="filtered$ | async" class="panel">
           <ng-container matColumnDef="title"><th mat-header-cell *matHeaderCellDef>异常</th><td mat-cell *matCellDef="let row"><b>{{ row.title }}</b><small class="sub">{{ row.id }} · {{ row.pointId }}</small></td></ng-container>
           <ng-container matColumnDef="severity"><th mat-header-cell *matHeaderCellDef>级别</th><td mat-cell *matCellDef="let row"><span class="severity" [class.major]="row.severity === '重大'">{{ row.severity }}</span></td></ng-container>
-          <ng-container matColumnDef="status"><th mat-header-cell *matHeaderCellDef>状态</th><td mat-cell *matCellDef="let row">{{ row.status }}</td></ng-container>
+          <ng-container matColumnDef="status"><th mat-header-cell *matHeaderCellDef>状态</th><td mat-cell *matCellDef="let row"><span class="status-pill" [class.recalc]="row.status === '重算重开'">{{ row.status }}</span></td></ng-container>
+          <ng-container matColumnDef="threshold"><th mat-header-cell *matHeaderCellDef>阈值版本</th><td mat-cell *matCellDef="let row">{{ row.thresholdVersion }}</td></ng-container>
           <ng-container matColumnDef="version"><th mat-header-cell *matHeaderCellDef>版本</th><td mat-cell *matCellDef="let row">V{{ row.version }}</td></ng-container>
           <ng-container matColumnDef="open"><th mat-header-cell *matHeaderCellDef></th><td mat-cell *matCellDef="let row"><button mat-button (click)="select(row.id)">审阅</button></td></ng-container>
           <tr mat-header-row *matHeaderRowDef="columns"></tr><tr mat-row *matRowDef="let row; columns: columns" [class.selected]="row.id === (selected$ | async)?.id"></tr>
         </table>
         <div class="panel detail" *ngIf="selected$ | async as selected">
-          <div class="detail-head"><div><span>{{ selected.id }} · V{{ selected.version }}</span><h2>{{ selected.title }}</h2><p>{{ selected.observedValue }}</p></div><span class="severity" [class.major]="selected.severity === '重大'">{{ selected.severity }}</span></div>
+          <div class="detail-head"><div><span>{{ selected.id }} · V{{ selected.version }} · {{ selected.thresholdVersion }}</span><h2>{{ selected.title }}</h2><p>{{ selected.observedValue }}</p></div><span class="severity" [class.major]="selected.severity === '重大'">{{ selected.severity }}</span></div>
+          <div class="recalc-band" *ngIf="selected.recalcState">
+            <b>{{ selected.status === '重算重开' ? '阈值版本变化：异常失效后重算重开（含已关闭处置）' : '阈值版本变化：异常按新阈值失效关闭' }}</b>
+            <p>{{ selected.recalcNote }}</p>
+            <small>重算次数 {{ selected.recalcCount }} · 依据 {{ selected.thresholdVersion }}<em *ngIf="recalcSource(selected.id) as source"> · 批次 {{ source.batchId }}（{{ source.status }}）</em></small>
+          </div>
           <h3>现场复核</h3>
           <div class="review-form"><mat-form-field appearance="outline" class="wide"><mat-label>现场观察</mat-label><textarea matInput rows="2" [(ngModel)]="fieldForm.observed"></textarea></mat-form-field><mat-form-field appearance="outline"><mat-label>证据清单</mat-label><input matInput [(ngModel)]="fieldForm.evidence" /></mat-form-field><mat-form-field appearance="outline"><mat-label>重新评估</mat-label><input matInput [(ngModel)]="fieldForm.reassessment" /></mat-form-field><button mat-flat-button color="primary" (click)="submitReview(selected)">提交复核版本</button></div>
           <div class="records" *ngFor="let review of selected.fieldReviews"><b>{{ review.inspector }} · V{{ review.version }}</b><p>{{ review.observed }}</p><span>{{ review.reassessment }} · {{ review.evidence }}</span></div>
@@ -55,6 +61,8 @@ import { selectAnomalies, selectFilteredAnomalies, selectSelectedAnomaly, select
     .review-form, .opinion-form, .plan-form { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }.review-form .wide, .opinion-form .wide, .plan-form .wide { grid-column: 1 / -1; }.review-form button, .plan-form button { align-self: center; }.records { border-left: 3px solid #315d6e; background: #f5f8f7; padding: 9px; margin-top: 7px; display: grid; gap: 4px; }.records p { margin: 0; font-size: 12px; }.records span { color: #72807d; font-size: 10px; }
     .opinions article { border-bottom: 1px solid #e2e7e6; padding: 9px 0; display: grid; grid-template-columns: 1fr auto; gap: 4px; }.opinions p { grid-column: 1 / -1; margin: 0; font-size: 12px; }.opinions span { color: #8a6720; font-size: 10px; }
     .approval-band { display: grid; grid-template-columns: 1fr auto auto auto; align-items: center; gap: 7px; background: #f6f0df; border-left: 3px solid #c99f3d; padding: 10px; margin-top: 12px; }.approval-band b, .approval-band span { display: block; }.approval-band span { color: #746c55; font-size: 10px; margin-top: 4px; }
+    .status-pill { font-size: 11px; }.status-pill.recalc { color: #a43c35; font-weight: 600; }
+    .recalc-band { margin-top: 12px; background: #fdf3f2; border-left: 3px solid #b84038; padding: 10px 12px; display: grid; gap: 4px; }.recalc-band b { color: #a43c35; font-size: 12px; }.recalc-band p { margin: 0; color: #71514e; font-size: 11px; }.recalc-band small { color: #98a4a0; font-size: 10px; }.recalc-band em { color: #315d6e; font-style: normal; font-weight: 600; }
   `]
 })
 export class AnomalyPageComponent {
@@ -62,8 +70,9 @@ export class AnomalyPageComponent {
   readonly filtered$ = this.store.select(selectFilteredAnomalies)
   readonly selected$ = this.store.select(selectSelectedAnomaly)
   readonly all$ = this.store.select(selectAnomalies)
-  readonly columns = ['title', 'severity', 'status', 'version', 'open']
-  readonly statuses: Anomaly['status'][] = ['待现场复核', '原因调查中', '待负责人审批', '应急联动', '已关闭']
+  readonly batches$ = this.store.select(selectOfflineBatches)
+  readonly columns = ['title', 'severity', 'status', 'threshold', 'version', 'open']
+  readonly statuses: Anomaly['status'][] = ['待现场复核', '原因调查中', '待负责人审批', '应急联动', '重算重开', '已关闭']
   readonly disciplines: ExpertOpinion['discipline'][] = ['坝体', '水文', '岩土', '应急']
   readonly actions: DispositionPlan['action'][] = ['加密监测', '降低库水位', '疏通排水', '应急撤离准备', '工程加固']
   localKeyword = ''
@@ -72,6 +81,16 @@ export class AnomalyPageComponent {
   opinionForm = { discipline: '坝体' as ExpertOpinion['discipline'], content: '' }
   planForm = { action: '加密监测' as DispositionPlan['action'], owner: '坝体安全组', conditions: '', deadline: '2026-09-29T18:00' }
   count(status: Anomaly['status']): number { let value = 0; this.all$.subscribe((items) => { value = items.filter((item) => item.status === status).length }).unsubscribe(); return value }
+
+  /** 从对账报告反算该异常最近一次重算所属的离线批次与对账状态（与总览/审计/导出同源）。 */
+  recalcSource(anomalyId: string): { batchId: string; status: OfflineBatch['status'] } | null {
+    let source: { batchId: string; status: OfflineBatch['status'] } | null = null
+    this.batches$.subscribe((batches) => {
+      const match = batches.find((batch) => batch.report?.recalculatedAnomalyIds.includes(anomalyId) || batch.report?.openedAnomalyIds.includes(anomalyId))
+      source = match ? { batchId: match.id, status: match.status } : null
+    }).unsubscribe()
+    return source
+  }
   updateKeyword(value: string): void { this.store.dispatch(TailingsActions.updateKeyword({ keyword: value })) }
   updateStatus(value: Anomaly['status'] | '全部'): void { this.store.dispatch(TailingsActions.updateStatus({ status: value })) }
   select(id: string): void { this.store.dispatch(TailingsActions.selectAnomaly({ anomalyId: id })) }
