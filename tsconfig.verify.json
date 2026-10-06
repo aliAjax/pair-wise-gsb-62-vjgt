@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "noEmitOnError": true,
+    "outDir": "/tmp/verify-out",
+    "skipLibCheck": true,
+    "types": ["node"]
+  },
+  "include": ["tools/**/*.ts", "apps/tailings-monitor/src/app/domain/**/*.ts", "apps/tailings-monitor/src/app/data/seed.ts"]
+}

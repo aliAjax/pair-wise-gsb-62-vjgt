@@ -19,10 +19,11 @@ import { TailingsActions } from './store/tailings.actions'
         <nav>
           <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><span>监测总览</span><small>地图与阈值</small></a>
           <a routerLink="/monitoring" routerLinkActive="active"><span>测点与读数</span><small>原始数据</small></a>
+          <a routerLink="/offline" routerLinkActive="active"><span>离线巡检对账</span><small>可恢复提交</small></a>
           <a routerLink="/anomalies" routerLinkActive="active"><span>异常处置</span><small>复核与会签</small></a>
           <a routerLink="/audit" routerLinkActive="active"><span>审计追溯</span><small>历史版本</small></a>
         </nav>
-        <div class="side-state"><span>原始读数保护</span><b>只读且不可覆盖</b><small>处置修订单独版本化</small></div>
+        <div class="side-state"><span>对账原则</span><b>中心正式读数不覆盖</b><small>两端同改保留双方值待核对</small></div>
       </mat-sidenav>
       <mat-sidenav-content>
         <mat-toolbar class="topbar"><div><span>矿山安全运营中心 / 尾矿库</span><h1>监测计划与异常处置审阅</h1></div><button mat-button (click)="reset()">恢复演示数据</button></mat-toolbar>

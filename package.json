@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "nx serve tailings-monitor",
     "build": "nx build tailings-monitor --skip-nx-cache",
-    "preview": "nx serve tailings-monitor --configuration=production"
+    "preview": "nx serve tailings-monitor --configuration=production",
+    "verify": "tsc -p tsconfig.verify.json && node /tmp/verify-out/tools/verify-reconcile.js && node /tmp/verify-out/tools/verify-e2e.js"
   },
   "dependencies": {
     "@angular/animations": "^19.2.0",
